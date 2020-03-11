@@ -132,15 +132,15 @@ module.exports = {
           })
         );
       } else {
+        return ctx.badRequest(
+          null,
+          formatError({
+            id: 'provider.disabled',
+            message: 'This provider is disabled.',
+          })
+        );
         console.log("testing123");
-        ctx.send({
-          jwt: strapi.plugins['users-permissions'].services.jwt.issue({
-            id: user.id,
-          }),
-          user: sanitizeEntity(user.toJSON ? user.toJSON() : user, {
-            model: strapi.query('user', 'users-permissions').model,
-          }),
-        });
+        
       }
     } else {
       if (!_.get(await store.get({ key: 'grant' }), [provider, 'enabled'])) {
