@@ -132,13 +132,7 @@ module.exports = {
           })
         );
       } else {
-        return ctx.badRequest(
-          null,
-          formatError({
-            id: 'provider.disabled',
-            message: 'This provider is disabled.',
-          })
-        );
+
         console.log("testing123");
         
       }
