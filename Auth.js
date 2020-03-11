@@ -132,6 +132,7 @@ module.exports = {
           })
         );
       } else {
+        console.log("testing123");
         ctx.send({
           jwt: strapi.plugins['users-permissions'].services.jwt.issue({
             id: user.id,
